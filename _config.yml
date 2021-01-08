@@ -1,3 +1,24 @@
 theme: minima
+
+title: xarantolus
+author:
+  name: xarantolus
+  email: xarantolus@pm.me
+# description:
+
+show_excerpts: false # set to true to show excerpts on the homepage
+
 minima:
+  date_format: "%Y-%m-%d"
   skin: dark
+
+  # generate social links in footer
+  social_links:
+    github:  xarantolus
+    # devto: jekyll
+
+header_pages: []
+
+plugins:
+ - jekyll-feed
+ - jekyll-seo-tag
