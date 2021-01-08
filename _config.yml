@@ -25,3 +25,4 @@ plugins:
  - jekyll-feed
  - jekyll-seo-tag
  - jekyll-relative-links
+ - jekyll-postfiles
