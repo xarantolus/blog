@@ -8,7 +8,7 @@ author:
 
 show_excerpts: true 
 
-permalink: :path
+permalink: :title
 
 minima:
   date_format: "%Y-%m-%d"
@@ -24,3 +24,4 @@ header_pages: [""]
 plugins:
  - jekyll-feed
  - jekyll-seo-tag
+ - jekyll-relative-links
