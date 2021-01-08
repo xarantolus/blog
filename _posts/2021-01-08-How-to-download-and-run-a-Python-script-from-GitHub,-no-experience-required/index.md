@@ -208,7 +208,7 @@ C:\directory\python.exe -m gallery_dl "https://www.flickr.com/photos/spacex/"
 Also, when writing an URL (or file path) like this in the [command line arguments](https://en.wikipedia.org/wiki/Command-line_interface#Arguments) of a program I recommend putting quotes `"` around it as done above.
 
 <p>
-<video controls muted style="margin-left:auto;margin-right:auto">
+<video controls muted style="width:100%;height:100%;margin-left:auto;margin-right:auto;object-fit:cover">
     <source src="vids/gallery_dl_start.webm" type="video/webm">
     <source src="vids/gallery_dl_start.mp4" type="video/mp4">
     Your browser does not support the playing these videos.

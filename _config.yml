@@ -8,6 +8,8 @@ author:
 
 show_excerpts: true 
 
+permalink: :path
+
 minima:
   date_format: "%Y-%m-%d"
   skin: dark
