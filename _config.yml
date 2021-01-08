@@ -17,7 +17,7 @@ minima:
     github:  xarantolus
     # devto: jekyll
 
-header_pages: []
+header_pages: null
 
 plugins:
  - jekyll-feed
