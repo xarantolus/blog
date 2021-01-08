@@ -1,5 +1,3 @@
-# How to download and run a Python script from GitHub, no experience required.
-
 In the past weeks people often asked me how to run a python script they found on GitHub. So here's a full guide on how to do that and which pitfalls exist and how to avoid them.
 
 I will explain all necessary details you need to know to get it running using examples, screenshots and videos.
