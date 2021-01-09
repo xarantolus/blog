@@ -1,5 +1,6 @@
 /* For customizing certain aspects of the page design */
 
+/* Images should be centered */
 img {
     margin-left: auto;
     margin-right: auto;
@@ -9,4 +10,11 @@ img {
 
 .center-image {
     text-align: center;
+    padding-bottom: 0.5%;
+}
+
+/* Headlines should have some margin, but not that much */
+.post-content h1, .post-content h2, .post-content h3 {
+    /* The default of 60px leaves way too much space */
+    margin-top: 20px !important;
 }
