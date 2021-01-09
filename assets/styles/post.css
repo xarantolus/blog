@@ -73,3 +73,8 @@ a[href^=\#] {
 .page-content a {
     text-decoration: dashed underline #d78f0b;
 }
+
+/* Links to post on the title page */
+.post-link {
+    text-decoration: none;
+}
