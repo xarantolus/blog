@@ -41,6 +41,12 @@ img {
     font-family: "Kristen ITC", "Tempus Sans ITC", "Monotype Corsiva";
 }
 
+/* Top header */
+
+.site-header {
+    border-top: none !important;
+}
+
 /* Text sizes */
 
 body {
