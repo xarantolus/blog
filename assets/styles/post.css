@@ -19,6 +19,12 @@ img {
     padding-bottom: 0.5%;
 }
 
+.image-hint {
+    color: grey;
+    font-size: .75em;
+    padding-top: 5px;
+}
+
 /* Headlines should have some margin, but not that much */
 
 .post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6 {

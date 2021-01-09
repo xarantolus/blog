@@ -11,7 +11,7 @@ But before starting please make sure the following is true:
 - You're using Windows 10
 - The project you're trying to run is using Python as programming language. GitHub will show a "Languages" section at the right side of the project page, which should look like this:
 
-<div class="center-image"><img src="assets/2021-01-08-run-python-script-from-github-no-experience-required/github-programming-language.png" alt="The languages section should list 'Python'" /></div>
+<div class="center-image"><img src="assets/2021-01-08-run-python-script-from-github-no-experience-required/github-programming-language.png" alt="The languages section should list 'Python'" /><p class="image-hint">You can click images to enlarge them</p></div>
 
 So here's our plan:
 
