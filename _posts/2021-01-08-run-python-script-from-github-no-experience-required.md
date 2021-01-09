@@ -153,6 +153,8 @@ Now type in all commands that are given/required by the authors of the script.
 
 If you ever accidentally press enter too early and now you're stuck in python's interactive mode (the line where you type will start with `>>>`), you can type in `exit()` to get back to the normal command line.
 
+<div class="center-image"><img src="assets/2021-01-08-run-python-script-from-github-no-experience-required/python-interactive.png" alt="This is pythons' interactive mode" /></div>
+
 ### Run the script {#script-run}
 The project page mentions that I can run gallery-dl by typing this in the command prompt:
 
