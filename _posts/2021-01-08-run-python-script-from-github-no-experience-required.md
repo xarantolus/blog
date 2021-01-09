@@ -145,8 +145,8 @@ Here's a quick video on how it works:
 In general you'll be given some commands you should type in to install. For each command, we try the following schema.
 
 If the it starts with...
-- `python` / `python3`: drag & drop python in the command prompt window, add a space and then copy everything after the word `python` / `python3` in there (add a space between the long python path and everything else)
-- `pip` / `pip3`: you want to drag & drop python in the window, then write a space, then `-m pip`, then another space and then everything after `pip` / `pip3`
+- `python` / `python3` / `py`: drag & drop python in the command prompt window, add a space and then copy everything after the word `python` / `python3` in there (add a space between the long python path and everything else)
+- `pip` / `pip3`: you want to drag & drop python in the window, then write a space, then `-m pip`, then another space and everything after the word `pip` / `pip3`
 - anything else: you likely have to do the same as above, add `-m` (with a space in front of it!) and then type in/paste the whole command. If it doesn't work on the first try replace any `_` (after `-m`) with `-` (or vice-versa)
 
 Now type in all commands that are given/required by the authors of the script.
