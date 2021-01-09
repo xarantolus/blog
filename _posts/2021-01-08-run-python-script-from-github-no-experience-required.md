@@ -160,18 +160,26 @@ The project page mentions that I can run gallery-dl by typing this in the comman
 
     gallery-dl 
 
-We now drop python in the command prompt again, add `-m` (with space in front of it) and then finally add the command from above:
+But that might not work. 
+
+This is why we now drop python in the command prompt again, add `-m` (with space in front of it) and then finally add the command from above:
 
 <div class="center-image"><img src="assets/2021-01-08-run-python-script-from-github-no-experience-required/gallery-dl-error.png" alt="There was an error: 'no module named gallery-dl'" /></div>
 
 Oh no, it couldn't be found! One thing we can try in such a case is replacing the dash `-` with an underscore `_`, e.g. `gallery-dl` becomes `gallery_dl`. You can also try it the other way around, e.g. `youtube_dl` becomes `youtube-dl`. Often one of these tricks works.
 
-And... it worked!
+And... it worked! At least the output we got is from the actual program.
 
 <div class="center-image"><img src="assets/2021-01-08-run-python-script-from-github-no-experience-required/gallery-dl-success.png" alt="We could start gallery_dl" /></div>
 
 But there's still an error because we didn't tell the program what to do.
 Note that it also tells us that we can add `--help` (make sure you add a space between the program name and `--help`) at the end "to get a list of all options", as in the program will tell us what it can do (and how we specify it).
+
+Please note that even though the program tells us that we can use `gallery-dl --help` to get more information, we still need to do our drag & drop routine from before. As in dragging python in there, writing a space, writing `-m` (again, adding spaces around it) and finally write the actual command it tells us to run.
+
+    C:\directory\python.exe -m gallery_dl --help
+
+Here we used the third point from our schema above to start the program.
 
 ##### Command-line arguments
 Most command-line programs don't ask interactively what they are supposed to do, they expect you to tell them from the start. 
