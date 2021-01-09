@@ -10,6 +10,9 @@ show_excerpts: true
 
 permalink: :title
 
+url: https://xarantolus.github.io
+baseurl: /blog
+
 minima:
   date_format: "%Y-%m-%d"
   skin: dark
