@@ -1,5 +1,5 @@
-{% if page.posts %}
-    {% assign post = page.posts | find: "title", page.title %}
+{% if site.posts %}
+    {% assign post = site.posts | find: "title", page.title %}
     {% if post %}
         {%- comment -%}
         If we have a blog post, we want to check certain conditions.
@@ -14,7 +14,7 @@
 
         {% for image in images %}
             {% if image contains 'src' %}
-                <script defer src=" assets/scripts/medium-zoom.min.js"></script>
+                <script defer src="assets/scripts/medium-zoom.min.js"></script>
                 <script>
                     function onLoad() {
                         mediumZoom("img", {
