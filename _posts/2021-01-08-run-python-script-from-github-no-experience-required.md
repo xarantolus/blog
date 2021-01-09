@@ -3,7 +3,7 @@ layout: post
 title: How to run a python script from GitHub, no experience required
 ---
 
-In the past weeks people often asked me how to run a python script they found on GitHub. So here's a full guide on how to do that and which pitfalls exist and how to avoid them.
+In the past weeks people often asked me how to run a python script they found on GitHub. So here's a full guide for beginners on how to do that and which pitfalls exist and how to avoid them.
 
 I will explain all necessary details you need to know to get it running using examples, screenshots and videos.
 
@@ -68,7 +68,7 @@ After clicking on the right arrow near the program name, the menu shown here sho
 
 A new window should open with a file listing. There, we right-click on the selected file and again open its file location: 
 
-<div class="center-image"><img src="assets/2021-01-08-run-python-script-from-github-no-experience-required/open-file-location.png" alt="Click "Open file location" for this step" /></div>
+<div class="center-image"><img src="assets/2021-01-08-run-python-script-from-github-no-experience-required/open-file-location.png" alt="Click 'Open file location' for this step" /></div>
 
 This will lead to the directory we actually need. One file named "python" will already be selected:
 

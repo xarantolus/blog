@@ -20,13 +20,56 @@ img {
 }
 
 /* Headlines should have some margin, but not that much */
-.post-content h1, .post-content h2, .post-content h3 {
+
+.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6 {
     /* The default of 60px leaves way too much space */
     margin-top: 20px !important;
+    font-weight: bold;
 }
 
 /* Top left text should look a bit like an image */
+
 .site-title, .site-title:visited {
     color: #7eebf0;
+    text-decoration: none;
     font-family: "Kristen ITC", "Tempus Sans ITC", "Monotype Corsiva";
+}
+
+/* Text sizes */
+
+body {
+    font-size: 1.1em;
+}
+
+/* Blog entries should be a wider than the default 800px */
+
+.wrapper {
+    max-width: calc(1000px - (30px * 2));
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+/* Link styles */
+
+a {
+    color: #00d549 !important;
+    transition: filter .25s ease-in-out;
+}
+
+a:hover {
+    color: unset;
+    filter: brightness(125%);
+}
+
+/* Internal links to sections */
+
+a[href^=\#] {
+    color: #20e3a5 !important;
+    text-decoration: none !important;
+}
+
+/* Underline links in blog posts */
+
+.page-content a {
+    text-decoration: dashed underline #d78f0b;
 }
