@@ -281,4 +281,13 @@ Here are some things you can do:
 However, it could of course also mean that this guide is incomplete or has errors.
 If you think this is the case, please feel free to [open an issue](https://github.com/xarantolus/blog/issues) or write an e-mail to <span id="mail-span"></span><script>document.getElementById('mail-span').innerText = atob('eGFyYW50b2x1c+RwbS5tZQ==').replace('ä', String.fromCharCode(8*8))</script><noscript>[not available without JavaScript]</noscript> (you can also find the address at [my GitHub profile](https://github.com/xarantolus)). Please also feel free to open an issue/write a mail for any minor comments, feedback etc.
 
+When you ask others a question about an error you got, you should definitely include these things:
+- What you're trying to do, e.g. "I wanted to download all images from a Flickr profile using gallery-dl"
+  - You should also provide a link to the tool you're using, e.g. "https://github.com/mikf/gallery-dl"
+- The command you're using to start the program, e.g. "python -m gallery-dl"
+- The output you got from the program (post it as text, screenshots are usually hard to read), select **everything** and copy it to your post (don't assume that any part of the output is unnecessary, just post the whole thing). If the forum supports it, you can format it as a code block (makes it more readable)
+- What else you have done so far ("I installed python")
+
+This makes it more likely that someone else can spot the error and tell you how to fix it.
+
 Thank you :)

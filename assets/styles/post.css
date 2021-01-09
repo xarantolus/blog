@@ -75,6 +75,15 @@ a[href^=\#] {
 }
 
 /* Links to post on the title page */
+
 .post-link {
     text-decoration: none !important;
+}
+
+/* For small/mobile screens */
+
+@media screen and (max-width: 800px) {
+    img {
+        max-width: 95%;
+    }
 }
