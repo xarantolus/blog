@@ -12,20 +12,19 @@ include medium-zoom.js to enable zooming
 {% assign images = post.content | split:"<img " %}
 
 {% for image in images %}
-{% if image contains 'src' %}
+    {% if image contains 'src' %}
+        <script defer src=" assets/scripts/medium-zoom.min.js"></script>
+        <script>
+            function onLoad() {
+                mediumZoom("img", {
+                    background: "#242424",
+                });
+            }
 
-<script defer src=" assets/scripts/medium-zoom.min.js"></script>
-<script>
-    function onLoad() {
-        mediumZoom("img", {
-            background: "#242424",
-        });
-    }
-
-    window.addEventListener('load', onLoad);
-</script>
-{% break %}
-{% endif %}
+            window.addEventListener('load', onLoad);
+        </script>
+        {% break %}
+    {% endif %}
 {% endfor %}
 
 {{% endif %}}
