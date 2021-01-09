@@ -86,4 +86,7 @@ a[href^=\#] {
     img {
         max-width: 95%;
     }
+    .center-image {
+        padding-bottom: 1.5%;
+    }
 }
