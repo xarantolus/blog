@@ -11,7 +11,7 @@ But before starting please make sure the following is true:
 - You're using Windows 10
 - The project you're trying to run is using Python as programming language. GitHub will show a "Languages" section at the right side of the project page, which should look like this:
 
-![The languages section should list "Python"](github-programming-language.png)
+![The languages section should list "Python"](/assets/2021-01-08-run-python-script-from-github-no-experience-required/github-programming-language.png)
 
 So here's our plan:
 
@@ -30,11 +30,11 @@ Windows 10 comes with certain shortcuts preinstalled, which can be annoying when
 
 To do so, search for "Manage App execution aliases" in the Windows 10 search bar typically located at the lower left side: 
 
-![Windows search bar](windows-search-bar.png)
+![Windows search bar](/assets/2021-01-08-run-python-script-from-github-no-experience-required/windows-search-bar.png)
 
 In this settings window, we'll disable everything that has to do with Python, which includes "python", "idle" and the app installer that also mentions "python.exe". After that, it should look similar to this:
 
-![Windows settings: App execution aliases](windows-settings-app-alias.png)
+![Windows settings: App execution aliases](/assets/2021-01-08-run-python-script-from-github-no-experience-required/windows-settings-app-alias.png)
 
 
 ### Install Python {#python-installation}
@@ -45,34 +45,34 @@ To start off, we might need to know which version to install. Do a quick check i
 #### Download
 Head over to [the official download page](https://www.python.org/downloads/) and either download the newest version or choose the version that was specified on the projects' page:
 
-![Python download page](python-version-selection.png)
+![Python download page](/assets/2021-01-08-run-python-script-from-github-no-experience-required/python-version-selection.png)
 
 If you choose a specific version, you'll get to the download page of that version. Find the "Files" section there and click on "Windows installer (64-bit)": 
 
-![Select this installer from the files section](python-specific-installer-selection.png)
+![Select this installer from the files section](/assets/2021-01-08-run-python-script-from-github-no-experience-required/python-specific-installer-selection.png)
 
 #### Installation
 Now that we downloaded the correct package, we need to run the installer.
 Make sure the "Add Python to PATH" box is checked and continue with "Install Now".
 
-![Python installer settings](python-installer-settings.png)
+![Python installer settings](/assets/2021-01-08-run-python-script-from-github-no-experience-required/python-installer-settings.png)
 
 If you get an error during the installation, you might want to start the installer again, but with admin rights from the beginning. To do that, right-click the file and choose "Run as administrator".
 
 #### Finding python {#finding-python}
 Now use the Windows 10 search bar to make sure python is installed (just search "Python"). If you installed Python 3.9.1 (like I did), you should find it there. Please note that the other versions shown here are **not important for us** and you only need the one you installed.
 
-![Windows 10 search listing for python](python-installed-search.png)
+![Windows 10 search listing for python](/assets/2021-01-08-run-python-script-from-github-no-experience-required/python-installed-search.png)
 
 After clicking on the right arrow near the program name, the menu shown here should come up. There, we'll click "Open file location". 
 
 A new window should open with a file listing. There, we right-click on the selected file and again open its file location: 
 
-![Click "Open file location" for this step](open-file-location.png)
+![Click "Open file location" for this step](/assets/2021-01-08-run-python-script-from-github-no-experience-required/open-file-location.png)
 
 This will lead to the directory we actually need. One file named "python" will already be selected:
 
-![This is the directory we want](python-directory.png)
+![This is the directory we want](/assets/2021-01-08-run-python-script-from-github-no-experience-required/python-directory.png)
 
 Please keep this window open for later, we'll need it.
 
@@ -104,11 +104,11 @@ or
 
 You have to type these into the command prompt, which is a window we'll open next. Type in "cmd" in the search bar and open it.
 
-![Open command prompt](command-prompt-search.png)
+![Open command prompt](/assets/2021-01-08-run-python-script-from-github-no-experience-required/command-prompt-search.png)
 
 It's just a window where we can type in text: 
 
-![An empty command prompt](empty-command-prompt.png)
+![An empty command prompt](/assets/2021-01-08-run-python-script-from-github-no-experience-required/empty-command-prompt.png)
 
 Now we have at least three windows open:
 - The one that contains the "python" / "python.exe" file (we opened it in ["Finding python"](#finding-python) before)
@@ -160,13 +160,13 @@ The project page mentions that I can run gallery-dl by typing this in the comman
 
 We now drop python in the command prompt again, add ` -m ` and then finally add the command from above:
 
-![There was an error: "no module named gallery-dl"](gallery-dl-error.png)
+![There was an error: "no module named gallery-dl"](/assets/2021-01-08-run-python-script-from-github-no-experience-required/gallery-dl-error.png)
 
 Oh no, it couldn't be found! One thing we can try in such a case is replacing the dash `-` with an underscore `_`, e.g. `gallery-dl` becomes `gallery_dl`. You can also try it the other way around, e.g. `youtube_dl` becomes `youtube-dl`. Often one of these tricks works.
 
 And... it worked!
 
-![We could start gallery_dl](gallery-dl-success.png)
+![We could start gallery_dl](/assets/2021-01-08-run-python-script-from-github-no-experience-required/gallery-dl-success.png)
 
 But there's still an error because we didn't tell the program what to do.
 Note that it also tells us that we can add ` --help` at the end "to get a list of all options", as in the program will tell us what it can do (and how we specify it).
