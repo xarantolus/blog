@@ -147,7 +147,7 @@ In general you'll be given some commands you should type in to install. For each
 If the it starts with...
 - `python` / `python3`: drag & drop python in the command prompt window, add a space and then copy everything after the word `python` / `python3` in there (add a space between the long python path and everything else)
 - `pip` / `pip3`: you want to drag & drop python in the window, then write a space, then `-m pip`, then another space and then everything after `pip` / `pip3`
-- anything else: you likely have to do the same as above, add ` -m ` and then type in/paste the whole command. If it doesn't work on the first try replace any `_` (after `-m`) with `-` (or vice-versa)
+- anything else: you likely have to do the same as above, add `-m` (with a space in front of it!) and then type in/paste the whole command. If it doesn't work on the first try replace any `_` (after `-m`) with `-` (or vice-versa)
 
 Now type in all commands that are given/required by the authors of the script.
 
@@ -158,7 +158,7 @@ The project page mentions that I can run gallery-dl by typing this in the comman
 
     gallery-dl 
 
-We now drop python in the command prompt again, add ` -m ` and then finally add the command from above:
+We now drop python in the command prompt again, add `-m` (with space in front of it) and then finally add the command from above:
 
 <div class="center-image"><img src="assets/2021-01-08-run-python-script-from-github-no-experience-required/gallery-dl-error.png" alt="There was an error: 'no module named gallery-dl'" /></div>
 
@@ -169,7 +169,7 @@ And... it worked!
 <div class="center-image"><img src="assets/2021-01-08-run-python-script-from-github-no-experience-required/gallery-dl-success.png" alt="We could start gallery_dl" /></div>
 
 But there's still an error because we didn't tell the program what to do.
-Note that it also tells us that we can add ` --help` at the end "to get a list of all options", as in the program will tell us what it can do (and how we specify it).
+Note that it also tells us that we can add `--help` (make sure you add a space between the program name and `--help`) at the end "to get a list of all options", as in the program will tell us what it can do (and how we specify it).
 
 ##### Command-line arguments
 Most command-line programs don't ask interactively what they are supposed to do, they expect you to tell them from the start. 
