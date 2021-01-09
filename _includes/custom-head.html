@@ -1,5 +1,5 @@
-{% assign post = page.posts | find: "title", page.title}
-{{% if post %}}
+{% assign post = page.posts | find: "title", page.title %}
+{% if post %}
 {%- comment -%}
 If we have a blog post, we want to check certain conditions.
 {%- endcomment -%}
