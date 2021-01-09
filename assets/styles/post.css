@@ -20,8 +20,13 @@ img {
 }
 
 /* Headlines should have some margin, but not that much */
-
 .post-content h1, .post-content h2, .post-content h3 {
     /* The default of 60px leaves way too much space */
     margin-top: 20px !important;
+}
+
+/* Top left text should look a bit like an image */
+.site-title, .site-title:visited {
+    color: #7eebf0;
+    font-family: "Kristen ITC", "Tempus Sans ITC", "Monotype Corsiva";
 }
