@@ -1,31 +1,28 @@
-{% if site.posts %}
-    {% assign post = site.posts | find: "title", page.title %}
-    {% if post %}
-        {%- comment -%}
-        If we have a blog post, we want to check certain conditions.
-        {%- endcomment -%}
+{% if page.content %}
+    {%- comment -%}
+    If we have a blog post, we want to check certain conditions.
+    {%- endcomment -%}
 
-        {%- comment -%}
-        First of all, if the post includes any images, we should
-        include medium-zoom.js to enable zooming
-        {%- endcomment -%}
+    {%- comment -%}
+    First of all, if the post includes any images, we should
+    include medium-zoom.js to enable zooming
+    {%- endcomment -%}
 
-        {% assign images = post.content | split:"<img " %}
+    {% assign images = page.content | split:"<img " %}
 
-        {% for image in images %}
-            {% if image contains 'src' %}
-                <script defer src="assets/scripts/medium-zoom.min.js"></script>
-                <script>
-                    function onLoad() {
-                        mediumZoom("img", {
-                            background: "#242424",
-                        });
-                    }
+    {% for image in images %}
+        {% if image contains 'src' %}
+            <script defer src="assets/scripts/medium-zoom.min.js"></script>
+            <script>
+                function onLoad() {
+                    mediumZoom("img", {
+                        background: "#242424",
+                    });
+                }
 
-                    window.addEventListener('load', onLoad);
-                </script>
-                {% break %}
-            {% endif %}
-        {% endfor %}
-    {% endif %}
+                window.addEventListener('load', onLoad);
+            </script>
+            {% break %}
+        {% endif %}
+    {% endfor %}
 {% endif %}
