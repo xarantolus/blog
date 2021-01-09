@@ -76,5 +76,5 @@ a[href^=\#] {
 
 /* Links to post on the title page */
 .post-link {
-    text-decoration: none;
+    text-decoration: none !important;
 }
