@@ -118,7 +118,7 @@ Now we have at least three windows open:
 ##### Script installation
 Here comes the part where we actually install the program we want to use. 
 
-Let's image I wanted to download all images from [this Flickr account](https://www.flickr.com/photos/spacex/). I found the command-line tool [gallery-dl](https://github.com/mikf/gallery-dl) on GitHub and want to install it.
+Let's imagine I wanted to download all images from [this Flickr account](https://www.flickr.com/photos/spacex/). I found the command-line tool [gallery-dl](https://github.com/mikf/gallery-dl) on GitHub and want to install it.
 
 Its installation instructions mention the following:
 
