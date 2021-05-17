@@ -1,6 +1,7 @@
 ---
 layout: post
 title: How to tap the Android screen from the underlying Linux system
+image: /assets/taptap/preview.png
 ---
 
 In recent years phone screens seem to only have gotten bigger. This is great because it allows you to see more on your screen, but it also has some drawbacks. One of them has been very annoying to me: I can no longer reach buttons at the top left of the screen in a comfortable way.
@@ -306,7 +307,7 @@ Now that we have done all the work to get a working tap program, we only need to
 
 It's basically a daemon that runs in the background and detects the aforementioned log lines to react with a tap. It also has a few more commands, but they are not as technically interesting as the tap.
 
-I also packaged the program into a [Magisk](https://github.com/topjohnwu/Magisk) module as that allows me to easily run it on boot.
+I also packaged the program into a [Magisk](https://github.com/topjohnwu/Magisk) (root solution with addons) module as that allows me to easily run it on boot.
 
 ### Further ideas
 One could use `getevent` and this method of writing events to create an event recorder that can accurately replay sequences of events. So if you want to automatically input a pin on the lock screen, that should be possible (the screen device file doesn't have any restrictions on *when* the tap can happen, I think the `input` command is limited to an unlocked phone only, no lock screen access).
