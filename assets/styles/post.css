@@ -92,6 +92,12 @@ a[href^=\#] {
     text-decoration: none !important;
 }
 
+/* Code comments should never be hidden, we want them bright */
+
+.highlight .c {
+    color: #FFB2FB !important;
+}
+
 /* For small/mobile screens */
 
 @media screen and (max-width: 800px) {

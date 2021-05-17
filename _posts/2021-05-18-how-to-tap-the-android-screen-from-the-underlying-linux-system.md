@@ -24,26 +24,26 @@ My phone has a fingerprint scanner at the back that is very easy to reach. This 
 So I took a look at the Android system log and found the following lines when putting the finger on and off the sensor:
 
 ```text
-05-17 17:45:55.679   890  1185 D fpc_fingerprint_hal: report_input_event - Reporting event type: 1, code: 96, value:1
-05-17 17:45:55.746   890  1185 D fpc_fingerprint_hal: report_input_event - Reporting event type: 1, code: 96, value:0
+fpc_fingerprint_hal: report_input_event - Reporting event type: 1, code: 96, value:1
+fpc_fingerprint_hal: report_input_event - Reporting event type: 1, code: 96, value:0
 ```
 
-The only relevant difference between these lines is the number at the end -- 1 for "finger down", 0 for "finger up".
+The only relevant difference between these lines is the number at the end -- `1` for "finger down", `0` for "finger up".
 
-So that was easy -- just write a program that scans the `logcat` output, detects these lines and then runs the `input tap x y` shell command. Right? 
+So that was easy -- just write a program that scans the `logcat` output, detects these lines and then runs the `input tap x y` shell command to tap a specific point. Right? 
 
 No.
 
 ### It's so slow
-The input command seemed very slow to me. It took quite some time from tapping the sensor to a reaction to the click. When testing it appears to take at least 300ms, often worse with about 400ms. 
+The input command seemed very slow to me. It took quite some time from tapping the sensor to a reaction to the click. While testing it appeared to take at least 300ms, often worse with about 400ms. 
 
-According to a lot of [anecdotal evidence](https://stackoverflow.com/questions/536300/what-is-the-shortest-perceivable-application-response-delay), actions that take 100ms or less are perceived as instant. So this command definitely fails all expectations of "instant" (it was probably not designed to be fast). But why is that?
+According to a lot of [anecdotal evidence](https://stackoverflow.com/questions/536300/what-is-the-shortest-perceivable-application-response-delay), actions that take 100ms or less are perceived as instant. So this command definitely fails all expectations of "instant" (it was probably not designed to be fast, anyway). But why is that?
 
 
 ### The "input" command
-Android comes with a lot of different commands in `/system/bin`. Most of them are expected in a typical Linux environment (like `tail`, `cat` etc.) and some of them are specific to Android.
+Android comes with a lot of different commands in `/system/bin`. Most of them are to be expected in a typical Linux environment (like `tail`, `cat` etc.) and some of them are specific to Android.
 
-The `input` command, to my surprise, was just a simple shell script:
+The `input` command, to my surprise, was just a shell script:
 
 ```sh
 #!/system/bin/sh
@@ -55,7 +55,7 @@ export CLASSPATH=$base/framework/input.jar
 exec app_process $base/bin com.android.commands.input.Input "$@"
 ```
 
-It basically starts a [Java program](https://android.googlesource.com/platform/frameworks/base/+/master/cmds/input/src/com/android/commands/input/Input.java) that can simulate a tap. There are also other actions it can do but for this post I don't care.
+If I read that correctly, it basically starts a [Java program](https://android.googlesource.com/platform/frameworks/base/+/master/cmds/input/src/com/android/commands/input/Input.java) that can simulate a tap. There are also other actions it can do but for this post I don't care.
 
 
 ## Reducing the delay
@@ -161,7 +161,7 @@ This is the output when doing a single tap in the top left corner of the display
     /dev/input/event1: 0000 0000 00000000        # SYN_REPORT          
 
 OK, so that is the data. And we know where to write it. But still... how?
-Let's take a look at the source code of the [`sendevent`](https://android.googlesource.com/platform/system/core/+/froyo-release/toolbox/sendevent.c) command. It seems to basically be a lower-level version of the `input` command.
+Let's take a look at the source code of the [`sendevent`](https://android.googlesource.com/platform/system/core/+/froyo-release/toolbox/sendevent.c) command. It seems to basically be a lower-level version of the `input` command (not really, but still kind of).
 
 The most interesting part is the `input_event` struct, which is filled with data and then written to a device file:
 
@@ -174,12 +174,12 @@ struct input_event {
 };
 ```
 
-So before we hat three columns with numbers in our output, and now we have three unsigned integers we want to fill with data: `type`, `code` and `value`. The `getevent` command outputs hex numbers, so we have to make sure we don't accidentally use the wrong number format when specifying them in a program (definitely never happened to me...sure ;)).
+So before we had three columns with numbers in our output, and now we have three unsigned integers we want to fill with data: `type`, `code` and `value`. The `getevent` command outputs hex numbers, so we have to make sure we don't accidentally use the wrong number format when specifying them in a program (definitely never happened to me...sure ;)).
 
 ### Putting it all together
-Now all we have to do is write the twelve events in sequence to the device file and then test the program.
+Now all we have to do is write the twelve events we observed previously in sequence to the device file and then test the program.
 
-While this is possible in any language, I chose [Go](https://golang.org/) for the task because of the ability to easily cross-compile from Windows to arm64 Android. It also made it extra easy to define the events needed for a single tap:
+While implementing this is possible in any language, I chose [Go](https://golang.org/) for the task because of the ability to easily cross-compile from Windows to Arm64 Android. It also made it extra easy to define the events needed for a single tap:
 
 ```go
 // Define the input_event struct, but in Go
@@ -282,7 +282,7 @@ var touch = []InputEvent{
 }
 ```
 
-Now we just write it the device file `f`:
+Now we just write our sequence to the device file `f`:
 
 ```go
 // Assumption: f is the opened display device file /dev/input/event1
@@ -309,9 +309,9 @@ It's basically a daemon that runs in the background and detects the aforemention
 I also packaged the program into a [Magisk](https://github.com/topjohnwu/Magisk) module as that allows me to easily run it on boot.
 
 ### Further ideas
-One could use `getevent` and this method of writing events to create an event recorder that can accurately replay sequences of events. So if you want to automatically input a pin on the lock screen, that should be possible (the screen device file doesn't have any restrictions on *when* the tap can happen, I think the `input` command is limited to unlocked phone only).
+One could use `getevent` and this method of writing events to create an event recorder that can accurately replay sequences of events. So if you want to automatically input a pin on the lock screen, that should be possible (the screen device file doesn't have any restrictions on *when* the tap can happen, I think the `input` command is limited to an unlocked phone only, no lock screen access).
 
 ### Thanks
-If you found this interesting and want to create something like this or adapt the program for your phone, take a look at the [repo](https://github.com/xarantolus/backtap).
+If you found this interesting and want to create something like this or adapt the program for your phone, take a look at the [repository](https://github.com/xarantolus/backtap).
 
 If there are any mistakes in this post please feel free to point them out (by email, reddit etc.). Thank you :)
