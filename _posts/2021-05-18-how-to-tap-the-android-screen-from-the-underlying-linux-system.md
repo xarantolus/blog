@@ -70,7 +70,7 @@ The first step when trying to reproduce a behavior is watching it. So how can we
 
 The [`getevent`](https://source.android.com/devices/input/getevent) utility allows us to watch certain events happen in real time. It also makes it easy to list device files associated with those events.
 
-Using `getevent -pl` we can get a nice overview of devices, their functions and device files: 
+Using `getevent -pl` (in a root shell on the phone) we can get a nice overview of devices, their events and device file paths: 
 
     chiron:/ $ getevent -pl
     add device 1: /dev/input/event6
@@ -131,7 +131,7 @@ Using `getevent -pl` we can get a nice overview of devices, their functions and 
 
 It looks confusing at first, but especially the last device is interesting: It has all kinds of events that are associated with a multitouch device. That's our screen. So now we know **where** to write data, the device file `/dev/input/event1`.
 
-The question what we should write can be answered by watching the `getevent -l` output:
+The question **what** we should write can be answered by watching the `getevent -l` output:
 
     /dev/input/event1: EV_ABS       ABS_MT_TRACKING_ID   0000504c
     /dev/input/event1: EV_KEY       BTN_TOUCH            DOWN

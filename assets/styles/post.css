@@ -107,4 +107,8 @@ a[href^=\#] {
     .center-image {
         padding-bottom: 1.5%;
     }
+    .wrapper {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
 }
