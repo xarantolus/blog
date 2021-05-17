@@ -18,8 +18,8 @@ minima:
   skin: dark
 
   # generate social links in footer
-  social_links:
-    github:  xarantolus
+  #social_links:
+    # github:  xarantolus
     # devto: jekyll
 
 header_pages: [""]
