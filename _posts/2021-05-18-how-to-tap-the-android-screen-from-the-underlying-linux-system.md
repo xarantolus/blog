@@ -4,6 +4,10 @@ title: How to tap the Android screen from the underlying Linux system
 image: /assets/taptap/preview.png
 ---
 
+This post is also available on [dev.to](https://dev.to/xarantolus/how-to-tap-the-android-screen-from-the-underlying-linux-system-3d30).
+
+---
+
 In recent years phone screens seem to only have gotten bigger. This is great because it allows you to see more on your screen, but it also has some drawbacks. One of them has been very annoying to me: I can no longer reach buttons at the top left of the screen in a comfortable way.
 
 In a way, I would divide the screen in three areas:
