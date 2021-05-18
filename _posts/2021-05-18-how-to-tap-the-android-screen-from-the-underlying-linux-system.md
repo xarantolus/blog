@@ -298,6 +298,7 @@ for _, ievent := range touch {
 
 You can find the whole program [here](https://github.com/xarantolus/backtap/blob/main/cmd/singletap/main.go).
 
+One interesting detail about the sequence is that it doesn't always have to be the same. Sometimes, there are more `SYN_REPORT` events in a sequence, but interestingly they do not appear to change the result. According to the [documentation](https://www.kernel.org/doc/html/v4.15/input/event-codes.html#ev-syn), if no `SYN_REPORT` has been sent between two events, they are seen as sent in the same moment of time; so this event type acts as a separator.
 
 Now that we have the code for a single tap, we can of course adjust the code to be able to tap any position by simply changing the `x` and `y` values.
 
