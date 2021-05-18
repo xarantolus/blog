@@ -318,4 +318,4 @@ If you found this interesting and want to create something like this or adapt th
 If there are any mistakes in this post please feel free to point them out (by email, reddit etc.). Thank you :)
 
 
-This post is also available on [dev.to](https://dev.to/xarantolus/how-to-tap-the-android-screen-from-the-underlying-linux-system-3d30) in case you want to comment there.
+This post is also available on [dev.to](https://dev.to/xarantolus/how-to-tap-the-android-screen-from-the-underlying-linux-system-34jf) in case you want to comment there.
