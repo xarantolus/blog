@@ -11,7 +11,7 @@ In a way, I would divide the screen in three areas:
 * **Not comfortable**: you *can* reach the area, but it's not as comfortable as the previously mentioned one.
 * **Unreachable**: this area is not in the reach of my thumb without repositioning my hand at the edge of the phone.
 
-<div class="center-image"><img height="1080" width="2160" src="assets/taptap/Phone-Reachable-Areas.png" alt="Here is a screenshot with an overlay that shows which areas are easy to reach with a thumb" /></div>
+<div class="center-image" width="2160" height="1080"><img src="assets/taptap/Phone-Reachable-Areas.png" alt="Here is a screenshot with an overlay that shows which areas are easy to reach with a thumb" /></div>
 
 
 So to me the most annoying buttons are those at the top left. While those on the top right can still be reached with a little effort, the ones in the top left corner require more effort. 
