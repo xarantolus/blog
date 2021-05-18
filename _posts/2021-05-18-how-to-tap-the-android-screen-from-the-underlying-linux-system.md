@@ -227,8 +227,8 @@ var eventSynReport = InputEvent{
 }
 
 // touch is the whole sequence of events that simulates a single tap
-// Please note that this is not 100% the same as outlined above, here one event is missing.
-// That event is probably unnecessary, because the tap is working without it just fine :)
+// While testing it seemed like not all SYN_REPORT events are necessary,
+// but we will just use the same sequence as observed above
 var touch = []InputEvent{
     {
         Type:  EV_ABS,
@@ -257,6 +257,7 @@ var touch = []InputEvent{
         Code:  ABS_MT_POSITION_Y,
         Value: 0x000000a3,
     },
+    eventSynReport,
     {
         Type:  EV_ABS,
         Code:  ABS_MT_TOUCH_MAJOR,
