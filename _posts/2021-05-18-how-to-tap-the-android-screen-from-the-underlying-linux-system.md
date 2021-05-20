@@ -246,7 +246,7 @@ var touch = []InputEvent{
         Code:  BTN_TOOL_FINGER,
         Value: TOUCH_VALUE_DOWN,
     },
-    // Top right corner
+    // Top left corner
     {
         Type:  EV_ABS,
         Code:  ABS_MT_POSITION_X,
