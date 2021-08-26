@@ -1,6 +1,7 @@
 ---
 layout: post
 title: How to programmatically interact with a KNX smart home system
+excerpt: "Interacting with a KNX system isn't always easy. This article shows how to write programs that switch lights and why you might want to do that. It also shows some demos of programs I use that interact with KNX."
 ---
 
 ***Note**: This article is basically a guide on what I had to figure out on my own when interacting programmatically with a KNX system. Some things can be very dependent on how your setup works. I'm also not a KNX expert in any way, much of this stuff was found by "trial and error" instead of reading kind of outdated documentation.*
