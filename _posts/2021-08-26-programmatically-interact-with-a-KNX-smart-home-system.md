@@ -161,6 +161,8 @@ The buttons switch automatically when the KNX system receives a switch event (ei
 ### Alarm clock
 Another application of automatic light switching -- as mentioned in the intro of this article -- is an alarm clock. It really helps you wake up when the light is already on -- there's no chance to fall sleep again after that.
 
+The most important part is calculating when you need to wake up (e.g. depending on an online calendar) and adding a fallback wakeup time in case the online source isn't available for some reason.
+
 ----
 
 ## Conclusion
