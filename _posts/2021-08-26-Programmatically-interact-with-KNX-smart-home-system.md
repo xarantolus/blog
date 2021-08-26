@@ -56,7 +56,7 @@ So in my case, the gateway address string in the code (first argument of NewGrou
 There are a bunch of error conditions I have faced while developing my own software that I just want to tell you about here. The connection to this gateway is a bit... interesting.
 
 ##### Multiple connections
-The first thing you should try when the connection doesn't work is closing ETS (or at least disconnecting it from the KNX system) and anything else that is connected to the KNX system. What I found out, at least about this gateway, is that is seems to support **only one connection** at once. When you connect from your code, you might get an error like `Response timeout reached`. ETS4 is a bit more descriptive with the following message (german):
+The first thing you should try when the connection doesn't work is closing ETS (or at least disconnecting it from the KNX system) and anything else that is connected to the KNX system. What I found out, at least about this gateway, is that it seems to only support **exactly one connection** at once. When you connect from your code, you might get an error like `Response timeout reached`. ETS4 is a bit more descriptive with the following message (german):
 
 > Fehler beim Öffnen der Verbindung: Die Schnittstelle konnte nicht geöffnet werden. Der Tunneling-Server ist erreichbar, aber er akzeptiert keine Verbindungen mehr zu diesem Zeitpunkt
 
@@ -67,7 +67,7 @@ So basically the solution to this is to only have **one thing** connect to the K
 ##### Timeout
 Another thing to note is that connecting to this BAOS gateway seems to be *very* slow. The default timeout of 10 seconds of the Go library was often not enough in my case. Normal pings are however answered very quickly, so my guess is that the actual software just does... interesting stuff (aka being slow for *some* reason).
 
-So anyways, increase the timeout and build a reconnection logic into your program. So your program should hold the connection *all the time* (because the initial connection takes long, and you don't want to wait 30 seconds before the light turns). And for that initial connection code, you should add something like an exponential backoff timer to only reconnect after 30 seconds, then a minute, then two, four etc. After an unexpected disconnect the gateway seems to take 30 seconds to a few minutes until it can accept connections again, which can be annoying for debugging. Make sure to always call `client.Close` before stopping your program, else you might need to wait a bit.
+So anyways, increase the timeout and build a reconnection logic into your program. So your program should hold the connection *all the time* (because the initial connection takes long, and you don't want to wait 30 seconds before the light turns on or off). And for that initial connection code, you should add something like an exponential backoff timer to only reconnect after 30 seconds, then a minute, then two, four etc. After an unexpected disconnect the gateway seems to take 30 seconds to a few minutes until it can accept connections again, which can be annoying for debugging. Make sure to always call `client.Close()` before stopping your program, else you might need to wait a bit.
 
 ---
 
@@ -91,7 +91,7 @@ So in the ETS4 software there's a tab for "group addresses", and when you right-
 
 <div class="center-image"><img src="assets/knx/KNX-Group-Addresses.png" alt="The 'group address' window shows the address we want to write to, so we click 'read/write value' and then read the data point type from the group monitor window" /></div>
 
-In the "group addresses" window, we select the light we want to switch for now (for debugging purposes). We right-click it, and ETS will open the "group monitor" window. It shows the group address and the type of data we need to send should be preconfigured.
+In the "group addresses" window, we select the light we want to switch for now (for debugging purposes). We right-click it, and ETS will open the "group monitor" window, which shows the group address. The type of data we need to send should be preconfigured.
 
 Note that there are (at least) two formats for addresses: one with two numbers (`1/2`) and one with three numbers (`1/2/3`). Just make sure to use exactly the format that ETS uses.
 
@@ -120,7 +120,7 @@ Can I break something in the system by turning on a light that is already on?
 * No. When you send an "on" signal (aka `dpt.DPT_1001(true)`), nothing happens when the light is already on.
 
 How can I toggle a light without directly sending the new state it should have?
-* It doesn't seem to be possible to just toggle a light.In order to toggle a light, your application needs to read the light state, then invert it. In my case, sending a `knx.GroupRead` command didn't really do *anything* and also never returned any data (also in ETS, reading didn't work). The solution to this is to listen to inbound messages (basically you can listen to *all events* sent over KNX), and then you have to keep a mapping of light addresses to their current state. And now when you want to toggle a light, you basically invert the last state you received about that light. So yeah, rather annoying but possible to do.
+* It doesn't seem to be possible to just toggle a light. In order to toggle a light, your application needs to read the light state, then invert it. In my case, sending a `knx.GroupRead` command didn't really do *anything* and also never returned any data (also in ETS, so reading doesn't seem to work at all). The solution to this is to listen to inbound messages (basically you can listen to *all events* sent over KNX), and then you have to keep a mapping of light addresses to their current state. And now when you want to toggle a light, you basically invert the last state you received about that light. So yeah, rather annoying but possible to do.
 
 ---
 
@@ -151,11 +151,11 @@ Basically when I tap the button, Tasker sends a request to the hub (this request
 ### A light switch website
 Since we can read live data from the hub, we can create a website that displays the current state of some light switches (e.g. by room). This site should of course also allow switching the lights.
 
-And that's how it looks for my room:
+And here's what I came up with for my room:
 
 <div class="center-image"><img src="assets/knx/home-website.gif" alt="A demo of my 'home' website that shows the light switches for my room and the current weather. It is possible to switch the switches from the site" /></div>
 
-The buttons switch automatically when the KNX system receives a switch event (either from physical light switches or from the hub). And it is of course also possible to switch the light using the switches on the website directly. I can't tell you how surreal of a feeling it is when you switch a physical light switch and the website updates within milliseconds; it's just cool.
+The buttons switch automatically when the KNX system receives a switch event (either from physical light switches or from the hub). And it is of course also possible to switch the light using the switches on the website directly. I can't tell you how surreal of a feeling it is when you switch a physical light switch and the website updates within milliseconds; it's just cool to see.
 
 
 ### Alarm clock
