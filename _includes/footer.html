@@ -7,9 +7,8 @@
       <div class="footer-col">
         <p class="feed-subscribe">
           <a href="{{ 'feed.xml' | relative_url }}">
-            <svg class="svg-icon orange">
-              <use xlink:href="{{ 'assets/rss.svg' | relative_url }}"></use>
-            </svg><span>Subscribe</span>
+              <img alt="feed icon" class="svg-icon orange" src="{{ 'assets/rss.svg' | relative_url }}" />
+              <span>Subscribe</span>
           </a>
         </p>
       {%- if site.author %}
