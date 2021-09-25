@@ -10,7 +10,7 @@ show_excerpts: true
 
 permalink: :title
 
-url: https://xarantolus.github.io
+url: https://blog.010.one
 baseurl: /
 
 minima:
