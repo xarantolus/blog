@@ -11,7 +11,7 @@ show_excerpts: true
 permalink: :title
 
 url: https://xarantolus.github.io
-baseurl: /blog
+baseurl: /
 
 minima:
   date_format: "%Y-%m-%d"
