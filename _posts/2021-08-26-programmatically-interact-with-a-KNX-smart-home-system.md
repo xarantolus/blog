@@ -75,7 +75,7 @@ So anyways, increase the timeout and build a reconnection logic into your progra
 
 So now I assume that you have a working, connected KNX client in the code -- the very same that we set up in the previous section.
 
-The KNX library now provides the following example code to send `20.5°C` to group `1/2/3`.
+The KNX library now provides the following example code to send `20.5°C` to group address `1/2/3`.
 
 ```go
 err = client.Send(knx.GroupEvent{
@@ -95,7 +95,7 @@ In the "group addresses" window, we select the light we want to switch for now (
 
 Note that there are (at least) two formats for addresses: one with two numbers (`1/2`) and one with three numbers (`1/2/3`). Just make sure to use exactly the format that ETS uses.
 
-So when we revisit the send snippet above, we can now write for a light switch:
+So when we revisit the send snippet above, we can now write the following for a light switch:
 
 ```go
 err = client.Send(knx.GroupEvent{
@@ -168,6 +168,6 @@ The most important part is calculating when you need to wake up (e.g. depending 
 ## Conclusion
 In general it can be said that the KNX system is kind of annoying to use. But once you figure out the basics and make them work in your program, then it's rather easy to apply the data gained from it (e.g. live switch events) to other software like the website.
 
-I hope this article helped you in the quest of programmatically automating lights in your home and might have given you one or two ideas on what it could be useful for. If you have any questions please feel free to reach out either on GitHub (e.g. an issue on my [blog repository](https://github.com/xarantolus/blog)) or via an e-mail to <span id="mail-span"></span><script>document.getElementById('mail-span').innerText = atob('eGFyYW50b2x1c+RwbS5tZQ==').replace('ä', String.fromCharCode(8*8))</script><noscript>[not available without JavaScript]</noscript>.
+I hope this article helped you in the quest of programmatically automating lights in your home and might have given you one or two ideas on what it could be useful for. If you have any questions please feel free to reach out either on GitHub (e.g. via an issue on my [blog repository](https://github.com/xarantolus/blog)) or via an e-mail to <span id="mail-span"></span><script>document.getElementById('mail-span').innerText = atob('eGFyYW50b2x1c+RwbS5tZQ==').replace('ä', String.fromCharCode(8*8))</script><noscript>[not available without JavaScript]</noscript>.
 
 Thanks for reading!
