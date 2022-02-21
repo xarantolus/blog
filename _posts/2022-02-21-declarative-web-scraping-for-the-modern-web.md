@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Declarative scraping for the modern web, or why your scraper breaks all the time
-excerpt: "Web scrapers break all the time due to changes to websites. This post shows a method on how to scrape modern sites with higher robustness."
+excerpt: "Web scrapers break all the time due to changes to websites. This post shows how to scrape modern sites with higher robustness."
 ---
 
 There are certain command-line tools we all use a lot. Whether it's the GNU core utilities for quickly getting info about files, FFmpeg to convert between different image formats or [`youtube-dl`](https://github.com/ytdl-org/youtube-dl) to just download that small sound effect without having to find yet another free downloading site.
@@ -53,13 +53,13 @@ And if we think about it, it actually sounds pretty easy: just write a program t
 If the tool is able to find *any* object in a page, we also don't need to care about the position of the data anymore. And if we only rely on a minimal set of attributes the objects we're looking for should have, then we don't need to care if someone changes the structure of everything else.
 
 
-Enter `jsonx`, a tool that does just that. If you have the Go toolchain installed, you can just install it from source using the following command. Alternatively, there's binaries for Linux and Windows [here](https://github.com/xarantolus/blog/releases/tag/jsonx).
+Enter `jsonx`, a tool that does just that. If you have the [Go](https://go.dev/) toolchain installed, you can just install it from source using the following command. Alternatively, there's binaries for Linux and Windows [here](https://github.com/xarantolus/blog/releases/tag/jsonx).
 
 ```sh
 go install github.com/xarantolus/jsonextract/cmd/jsonx@latest
 ```
 
-Now we can just tell the tool to get all objects that have a `videoId`, `title`, and ` channelId` from a page (I also added [`jq`](https://stedolan.github.io/jq/) for nicer formatting of the output):
+Now we can just tell the tool to get all objects that have a `videoId`, `title`, and `channelId` from a page (I also added [`jq`](https://stedolan.github.io/jq/) for nicer formatting of the output):
 
 ```sh
 $ jsonx "https://www.youtube.com/watch?v=-Oox2w5sMcA" videoId title channelId | jq
@@ -135,7 +135,7 @@ And if you like the approach, you should implement it in your scraper! This make
 ### Conclusion
 If you found this interesting, feel free to comment by opening an issue on my [blog repository](https://github.com/xarantolus/blog) or send me an e-mail. 
 
-If you're interested in low-level Android stuff, you can [read my post about the Linux multitouch protocol on Android](2021-05-18-how-to-tap-the-android-screen-from-the-underlying-linux-system.md). Alternatively if you've heard of or have a KNX "smart home" system, you might be interested in [this other post about my KNX setup](2021-08-26-programmatically-interact-with-a-KNX-smart-home-system.md).
+If you're interested in low-level Android stuff, you can [read my post about the Linux multitouch protocol on Android](https://blog.010.one/how-to-tap-the-android-screen-from-the-underlying-linux-system). Alternatively if you've heard of or have a KNX "smart home" system, you might be interested in [this other post about my KNX setup](https://blog.010.one/programmatically-interact-with-a-KNX-smart-home-system).
 
 
 ---------
