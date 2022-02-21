@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Declarative scraping for the modern web, or why your scraper breaks all the time
+excerpt: "Web scrapers break all the time due to changes to websites. This post shows a method on how to scrape modern sites with higher robustness."
 ---
 
 There are certain command-line tools we all use a lot. Whether it's the GNU core utilities for quickly getting info about files, FFmpeg to convert between different image formats or [`youtube-dl`](https://github.com/ytdl-org/youtube-dl) to just download that small sound effect without having to find yet another free downloading site.
