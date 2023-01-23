@@ -1,2 +1,6 @@
 ideas.md
 drafts/
+_site
+.jekyll*
+.gitignore
+.vite
