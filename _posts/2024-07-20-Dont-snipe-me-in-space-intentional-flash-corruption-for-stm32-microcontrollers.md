@@ -98,7 +98,7 @@ However, this would only work sometimes. The wait time can vary due to timings b
 #### Binary search over multiple resets
 The approximate unit of time to wait varies a bit, but is in a certain range. In this case "unit of time" really just means how much overhead an almost empty loop has, because that's what I used to wait before the flash programming start (there are honestly better ways, but this is one way, and it works).
 
-So what I wanted to build is a binary search that keeps its state over resets. Keeping state is kind of the opposite of what a reset is intended to do, so a way to store data cross resets was needed. The real time clock (RTC) of the MCU has 32 backup registers, which store 32 bits each. They are kept over multiple resets and thus enable us to keep state such as the bottom and top of the range that we are searching.
+So what I wanted to build is a binary search that keeps its state over resets. Keeping state is kind of the opposite of what a reset is intended to do, so a way to store data across resets was needed. The real time clock (RTC) of the MCU has 32 backup registers, which store 32 bits each. They are kept over multiple resets and thus enable us to keep state such as the bottom and top of the range that we are searching.
 
 When doing a step, the waiting loop runs for the middle of the range, and then flash programming is initiated, and once it's finished, the blue LED turns on. Afterwards (or hopefully *during* the programming operation), the watchdog reset happens. The blue LED thus indicates that we need a lower timing. If the process worked, the green LED comes on, otherwise a next reset happens. If the program got into a spot where it cannot advance further (timings are a bit random after all), the red LED will come on. In that case, a manual reset can be done.
 
@@ -123,6 +123,6 @@ This now gives me a reasonable peace of mind, even when the bootloader will be i
 ### Final note
 If you think this kind of stuff is interesting and your company might be interested in supporting or sponsoring our [student club](https://warr.de/en/projects/warr-move/), please reach out to me at [philipp.erhardt@warr.de](mailto:philipp.erhardt@warr.de). Additionally, if your company has some space left on a satellite and wants to enable the next generation of builders to get hands-on experience, please also reach out. We are thankful for any support.
 
-If you're interested in hearing more about MOVE, satellites, or just want to stay updated on things like this, feel free to subscribe to the RSS feed of my blog or follow me on [LinkedIn](https://www.linkedin.com/in/erhardt-philipp/) (please note that I usually only connect with people I know personally, so if you're only interested in updates, please just follow).
+If you're interested in hearing more about MOVE, satellites, or just want to stay updated on things like this, feel free to subscribe to the RSS feed of my blog or follow me on [LinkedIn](https://www.linkedin.com/in/erhardt-philipp/).
 
 Thank you for reading!
