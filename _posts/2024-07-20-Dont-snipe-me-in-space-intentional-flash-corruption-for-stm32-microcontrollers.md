@@ -40,10 +40,10 @@ unsafe fn NonMaskableInt() -> ! {
 	let peripherals = unsafe { stm32l4r5::Peripherals::steal() };
 	let reg_content = peripherals.FLASH.eccr.read();
 	let is_flash_nmi: bool = {
-		// Note: initializes our custom flash abstraction
+		/// Note: initializes our custom flash abstraction
 		let flash = Flash::new(peripherals.FLASH);
 		if flash.is_dualbank() {
-			// In dual-bank mode, Bit 29 (ECCD2) is reserved, so only look at bit 31 (ECCD)
+			/// In dual-bank mode, Bit 29 (ECCD2) is reserved, so only look at bit 31 (ECCD)
 			reg_content.eccd().bit_is_set()
 		} else {
 			/// Bit 31 and Bit 29 - either lower or upper 64 bits of 128 bit value
@@ -54,9 +54,9 @@ unsafe fn NonMaskableInt() -> ! {
 
 	let dead_addr = reg_content.addr_ecc().bits();
 
-	// Some actual logic to handle this information
+	/// Some actual logic to handle this information
 	if is_flash_nim {
-		// dead_addr has problems
+		/// dead_addr has problems
 	}
 }
 ```
