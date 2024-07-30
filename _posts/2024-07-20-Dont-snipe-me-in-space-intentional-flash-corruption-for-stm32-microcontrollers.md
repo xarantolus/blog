@@ -92,7 +92,7 @@ To verify that the code actually did what I thought, I connected GDB to the chip
 
 In the value `0x80006000`, the top bit means that the interrupt is actually the ECCD interrupt. The lowest 20 bit, or the last 5 hex characters, are the address of the block that was found to have two or more errors. This was exactly the address I had configured it to damage, so it was really nice to see it work as intended.
 
-However, this would only work sometimes. The wait time can vary due to timings being slightly different depending on the temperature and other things, so a more dynamic approach that finds the correct timing was required.
+However, this would only work sometimes. The wait time can vary due to timings being slightly different, depending on temperature and other things, so a more dynamic approach that finds the correct timing was required.
 
 
 #### Binary search over multiple resets
@@ -100,7 +100,7 @@ The approximate unit of time to wait varies a bit, but is in a certain range. In
 
 So what I wanted to build is a binary search that keeps its state over resets. Keeping state is kind of the opposite of what a reset is intended to do, so a way to store data across resets was needed. The real time clock (RTC) of the MCU has 32 backup registers, which store 32 bits each. They are kept over multiple resets and thus enable us to keep state such as the bottom and top of the range that we are searching.
 
-When doing a step, the waiting loop runs for the middle of the range, and then flash programming is initiated, and once it's finished, the blue LED turns on. Afterwards (or hopefully *during* the programming operation), the watchdog reset happens. The blue LED thus indicates that we need a lower timing. If the process worked, the green LED comes on, otherwise a next reset happens. If the program got into a spot where it cannot advance further (timings are a bit random after all), the red LED will come on. In that case, a manual reset can be done.
+When doing a step, we first calculate the middle of the waiting range, busy-wait that amount of iterations, and then initiate flash programming. Once it's finished, the blue LED turns on. Afterwards (or hopefully *during* the programming operation), the watchdog reset happens. The blue LED thus indicates that we need a lower timing. If the process worked, the green LED comes on, otherwise a next reset happens. If the program got into a spot where it cannot advance further (timings are a bit random after all), the red LED will come on. In that case, a manual reset can be done.
 
 With that in mind, this is what destroying an address looks like in practice (Note the LD1-LD2 LEDs):
 
