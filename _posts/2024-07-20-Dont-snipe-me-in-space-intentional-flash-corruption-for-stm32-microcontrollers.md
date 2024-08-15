@@ -52,7 +52,7 @@ unsafe fn NonMaskableInt() -> ! {
 		}
 	};
 
-	// Address on 1MB bank + which bank it's on
+	/// Address on 1MB bank + which bank it's on
 	let dead_addr = reg_content.addr_ecc().bits() | ((reg_content.bk_ecc().bit() as u32) << 20);
 
 	/// Some actual logic to handle this information
