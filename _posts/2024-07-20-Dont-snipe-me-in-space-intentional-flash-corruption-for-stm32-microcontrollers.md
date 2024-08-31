@@ -122,7 +122,7 @@ With this new tool under our belt, we can now intentionally affect flash address
 This now gives me a reasonable peace of mind, even when the bootloader will be in space. To be honest, I will probably still have some worries for my first code in space, but at least now there is one less unknown.
 
 ### Final note
-If you think this kind of stuff is interesting and your company might be interested in supporting or sponsoring our [student club](https://warr.de/en/projects/warr-move/), please reach out to me at [philipp.erhardt@warr.de](mailto:philipp.erhardt@warr.de). Additionally, if your company has some space left on a satellite and wants to enable the next generation of builders to get hands-on experience, please also reach out. We are thankful for any support.
+If you think this kind of stuff is interesting and your company might be interested in supporting or sponsoring our [student club](https://warr.de/en/projects/move/), please reach out to me at [philipp.erhardt@warr.de](mailto:philipp.erhardt@warr.de). Additionally, if your company has some space left on a satellite and wants to enable the next generation of builders to get hands-on experience, please also reach out. We are thankful for any support.
 
 If you're interested in hearing more about MOVE, satellites, or just want to stay updated on things like this, feel free to subscribe to the RSS feed of my blog or follow me on [LinkedIn](https://www.linkedin.com/in/erhardt-philipp/).
 
