@@ -4,7 +4,7 @@ title: "Don't snipe me in space - intentional flash corruption for STM32 microco
 image: assets/stm32/sniper.jpg
 ---
 
-Almost one and a half years ago I joined [MOVE](https://warr.de/en/projects/warr-move/), the **M**unich **O**rbital **V**erification **E**xperiment, a student club focusing on practical education in the area of satellites at the [Technical University of Munich](https://www.tum.de/). MOVE has launched three CubeSats to date ([First-MOVE in 2013](https://warr.de/en/projects/warr-move/first-move/), [MOVE-II in 2018 and MOVE-IIb in 2019](https://warr.de/en/projects/warr-move/move-ii-and-move-iib/)), and we are currently preparing two future missions. These missions require reliable software, and the ability to update in orbit.
+Almost one and a half years ago I joined [MOVE](https://warr.de/en/projects/move/), the **M**unich **O**rbital **V**erification **E**xperiment, a student club focusing on practical education in the area of satellites at the [Technical University of Munich](https://www.tum.de/). MOVE has launched three CubeSats to date ([First-MOVE in 2013](https://warr.de/en/projects/move/first-move/), [MOVE-II in 2018 and MOVE-IIb in 2019](https://warr.de/en/projects/move/move-ii-and-move-iib/)), and we are currently preparing two future missions. These missions require reliable software, and the ability to update in orbit.
 
 One of the first larger projects I took part in was building a bootloader for the [STM32L4R5ZI MCU](https://www.st.com/en/microcontrollers-microprocessors/stm32l4r5-s5.html), which should enable us to do reliable on-orbit software updates. This MCU has 2 MB of flash storage, which we use to store the bootloader, firmware images and additional metadata (e.g. checksums for firmware images).
 
